@@ -126,6 +126,7 @@ import com.jgoodies.forms.factories.ButtonBarFactory;
 import com.jgoodies.looks.HeaderStyle;
 import com.jgoodies.looks.Options;
 import com.smartbear.analytics.AnalyticsManager;
+import io.prometheus.client.MetricsInitializer;
 import javafx.application.Platform;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
@@ -921,6 +922,12 @@ public class SoapUI {
     }
 
     public static void main(String[] args) throws Exception {
+        try {
+            MetricsInitializer.initializeMetrics();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         WebstartUtilCore.init();
         setBackgroundsToWhite();
         mainArgs = args;

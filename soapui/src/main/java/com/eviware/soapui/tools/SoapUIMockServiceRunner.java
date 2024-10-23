@@ -25,6 +25,7 @@ import com.eviware.soapui.model.mock.MockService;
 import com.eviware.soapui.model.project.ProjectFactoryRegistry;
 import com.eviware.soapui.model.support.MockRunListenerAdapter;
 import com.eviware.soapui.support.DateUtil;
+import io.prometheus.client.MetricsInitializer;
 import org.apache.commons.cli.CommandLine;
 
 import java.util.ArrayList;
@@ -87,6 +88,12 @@ public class SoapUIMockServiceRunner extends AbstractSoapUIRunner {
     }
 
     public boolean runRunner() throws Exception {
+        try {
+            MetricsInitializer.initializeMetrics();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         initGroovyLog();
 
         String projectFile = getProjectFile();

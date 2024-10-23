@@ -54,6 +54,7 @@ import com.eviware.soapui.report.TestCaseRunLogReport;
 import com.eviware.soapui.support.StringUtils;
 import com.eviware.soapui.support.Tools;
 import com.eviware.soapui.support.types.StringToObjectMap;
+import io.prometheus.client.MetricsInitializer;
 import org.apache.commons.cli.CommandLine;
 
 import java.io.File;
@@ -332,6 +333,12 @@ public class SoapUITestCaseRunner extends AbstractSoapUITestRunner {
 
     @Override
     public boolean runRunner() throws Exception {
+        try {
+            MetricsInitializer.initializeMetrics();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         AnalyticsHelper.initializeAnalytics();
         Analytics.trackSessionStart();
         if (System.getenv(STARTED_FROM_GUI) == null) {
