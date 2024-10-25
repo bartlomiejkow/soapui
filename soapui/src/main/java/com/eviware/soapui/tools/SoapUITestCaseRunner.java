@@ -54,7 +54,7 @@ import com.eviware.soapui.report.TestCaseRunLogReport;
 import com.eviware.soapui.support.StringUtils;
 import com.eviware.soapui.support.Tools;
 import com.eviware.soapui.support.types.StringToObjectMap;
-import io.prometheus.client.MetricsInitializer;
+import io.micrometer.client.MetricsInitializer;
 import org.apache.commons.cli.CommandLine;
 
 import java.io.File;

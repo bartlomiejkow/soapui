@@ -25,7 +25,7 @@ import com.eviware.soapui.model.mock.MockService;
 import com.eviware.soapui.model.project.ProjectFactoryRegistry;
 import com.eviware.soapui.model.support.MockRunListenerAdapter;
 import com.eviware.soapui.support.DateUtil;
-import io.prometheus.client.MetricsInitializer;
+import io.micrometer.client.MetricsInitializer;
 import org.apache.commons.cli.CommandLine;
 
 import java.util.ArrayList;

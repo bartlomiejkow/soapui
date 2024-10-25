@@ -39,7 +39,7 @@ import com.eviware.soapui.model.testsuite.TestSuite;
 import com.eviware.soapui.settings.UISettings;
 import com.eviware.soapui.support.SoapUIException;
 import com.eviware.soapui.support.StringUtils;
-import io.prometheus.client.MetricsInitializer;
+import io.micrometer.client.MetricsInitializer;
 import org.apache.commons.cli.CommandLine;
 
 import java.io.File;
